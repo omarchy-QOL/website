@@ -20,10 +20,11 @@ screenshots:
   - src: /media/plugin-control/preview.png
     alt: Plugin Control command palette
     caption: Command palette
-  - src: /media/plugin-control/add-remove.png
-    alt: Plugin Control managing installed plugins
-    caption: Add, update, enable, disable, and remove
-  - src: /media/plugin-control/settings.png
-    alt: Plugin Control settings
-    caption: Settings
+videos:
+  - src: /media/plugin-control/add-remove.mp4
+    poster: /media/plugin-control/add-remove.png
+    title: Add, remove, enable, and disable
+  - src: /media/plugin-control/settings.mp4
+    poster: /media/plugin-control/settings.png
+    title: Refresh and settings
 ---

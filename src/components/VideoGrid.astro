@@ -1,0 +1,27 @@
+---
+interface Video {
+  src: string
+  poster: string
+  title: string
+}
+
+interface Props {
+  videos: Video[]
+}
+
+const { videos } = Astro.props
+---
+
+<div class="demo-video-grid">
+  {
+    videos.map((video) => (
+      <figure class="demo-figure">
+        <video controls muted playsinline poster={video.poster} preload="metadata">
+          <source src={video.src} type="video/mp4" />
+          <a href={video.src}>Open the {video.title} video</a>
+        </video>
+        <figcaption>{video.title}</figcaption>
+      </figure>
+    ))
+  }
+</div>

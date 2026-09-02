@@ -243,6 +243,10 @@ summary:focus-visible {
   margin-bottom: 3rem;
 }
 
+.landing-demo-section .section-heading {
+  margin-bottom: 0;
+}
+
 .eyebrow,
 .docs-label {
   margin: 0 0 0.5rem;
@@ -449,6 +453,10 @@ summary:focus-visible {
   grid-column: 1 / -1;
 }
 
+.demo-video-grid .demo-figure:only-child {
+  grid-column: 1 / -1;
+}
+
 .demo-figure {
   min-width: 0;
   margin: 0;
@@ -564,6 +572,23 @@ summary:focus-visible {
 
 .source-panel h2 {
   font-size: 1.125rem;
+}
+
+.source-button {
+  min-width: 7.75rem;
+  min-height: 2.5rem;
+  flex: 0 0 auto;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.github-mark {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 auto;
+  fill: currentColor;
 }
 
 .docs-header {
@@ -704,7 +729,7 @@ body > .page .sl-markdown-content h3 {
   }
 
   .source-panel {
-    align-items: stretch;
+    align-items: flex-start;
     flex-direction: column;
   }
 }

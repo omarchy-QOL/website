@@ -4,7 +4,7 @@ description: Put useful CPU, RAM, GPU, and temperature signals in the bar, then 
 shortDescription: Low-overhead system meters with one-click access to btop.
 category: System
 status: published
-version: 0.2.0
+version: 0.2.1
 pluginOrder: 3
 kinds:
   - service
@@ -15,4 +15,12 @@ highlights:
   - Live system meters with a configurable polling interval
   - Floating or tiled btop window modes
   - Built-in icon choices plus support for a custom icon
+screenshots:
+  - src: /media/btop-activity/preview.png
+    alt: btop Activity on the Omarchy desktop
+    caption: System meters and btop controls
+videos:
+  - src: /media/btop-activity/demo.mp4
+    poster: /media/btop-activity/preview.png
+    title: Launch, layouts, refresh interval, and keybinding
 ---

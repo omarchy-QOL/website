@@ -4,7 +4,7 @@ description: Turn stock CLIamp into a dependable top-edge drop-down with compact
 shortDescription: A binding-scoped CLIamp drop-down with precise geometry.
 category: System
 status: published
-version: 0.1.5
+version: 0.1.3
 pluginOrder: 5
 kinds:
   - service

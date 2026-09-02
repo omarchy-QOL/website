@@ -1,23 +1,23 @@
 # Omarchy QOL website
 
-A minimal Astro home and Starlight documentation site for the Omarchy QOL
-plugin collection.
+A minimal Astro home and Starlight documentation site for the Omarchy QOL plugin
+collection.
 
 ## What is here
 
 - a public landing page at `/`
 - a documentation overview and persistent sidebar at `/docs`
-- one compact page for every published plugin
+- one compact page for every plugin
 - reviewed screenshot and video demos from the plugin repositories
 - a separate Labs section for unfinished experiments
 - direct routes to each plugin's GitHub repository
 - a responsive dark theme
 
 Plugin facts and documentation are kept in
-`src/content/docs/docs/plugins/*.mdx`. Update the matching frontmatter when a
-manifest version, description, status, or repository location changes.
-Published demo copies live under `public/media/`; their source of truth remains
-the matching plugin repository.
+`src/content/docs/docs/plugins/*.md`. Update the matching frontmatter when a
+manifest version, description, status, or repository location changes. Published
+demo copies live under `public/media/`; their source of truth remains the
+matching plugin repository.
 
 ## Run locally
 

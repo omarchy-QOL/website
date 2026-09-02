@@ -1,7 +1,7 @@
 import starlight from "@astrojs/starlight"
 import { defineConfig } from "astro/config"
 
-const description = "Plugins that make Omarchy easier to use without blowing up your system."
+const description = "Plugins that improve Omarchy without blowing up your system."
 
 export default defineConfig({
   site: "https://omarchyqol.com",
@@ -47,11 +47,15 @@ export default defineConfig({
             { label: "Keyboard Layout Pulse", slug: "docs/plugins/omarchy-keyboard-layout" },
             { label: "CLIamp Window Control", slug: "docs/plugins/omarchy-cliamp-control" },
             { label: "Update Channel", slug: "docs/plugins/omarchy-update-stream" },
+            { label: "Wispr Flow", slug: "docs/plugins/wispr-flow" },
           ],
         },
         {
           label: "Labs",
-          items: [{ label: "Metaplug", slug: "docs/plugins/metaplug" }],
+          items: [
+            { label: "Dropbox Quota", slug: "docs/plugins/dropbox-quota" },
+            { label: "Metaplug", slug: "docs/plugins/metaplug" },
+          ],
         },
       ],
       head: [

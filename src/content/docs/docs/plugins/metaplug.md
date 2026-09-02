@@ -5,7 +5,7 @@ shortDescription: Explore the plugin ecosystem through transparent, custom metri
 category: Labs
 status: lab
 version: 0.1.0
-pluginOrder: 7
+pluginOrder: 9
 kinds:
   - overlay
 highlights:
