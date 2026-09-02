@@ -1,0 +1,69 @@
+---
+import DefaultHead from "@astrojs/starlight/components/Head.astro"
+import { SITE } from "../config/site.mjs"
+
+interface Screenshot {
+  src: string
+  alt: string
+  width: number
+  height: number
+}
+
+interface Video {
+  src: string
+  poster: string
+  title: string
+  description: string
+  duration: string
+  uploadDate: string
+  width: number
+  height: number
+}
+
+interface PageData {
+  title: string
+  description?: string
+  status?: "published" | "lab"
+  screenshots?: Screenshot[]
+  videos?: Video[]
+}
+
+const data = Astro.locals.starlightRoute.entry.data as PageData
+const base = Astro.site ?? new URL(SITE.origin)
+const featuredImage = data.screenshots?.[0]
+const featuredVideo = data.videos?.[0]
+const imagePath = featuredImage?.src ?? featuredVideo?.poster ?? SITE.socialImage
+const imageWidth = featuredImage?.width ?? featuredVideo?.width ?? SITE.socialImageWidth
+const imageHeight = featuredImage?.height ?? featuredVideo?.height ?? SITE.socialImageHeight
+const imageUrl = new URL(imagePath, base).href
+const description = data.description ?? SITE.description
+const isNotFound = ["/404", "/404/", "/404.html"].includes(Astro.url.pathname)
+const robots =
+  data.status === "lab" || isNotFound ? "noindex,follow" : "index,follow,max-image-preview:large,max-video-preview:-1"
+
+const videoGraph = (data.videos ?? []).map((video) => ({
+  "@type": "VideoObject",
+  name: video.title,
+  description: video.description,
+  thumbnailUrl: new URL(video.poster, base).href,
+  contentUrl: new URL(video.src, base).href,
+  uploadDate: video.uploadDate,
+  duration: video.duration,
+}))
+
+const videoJsonLd = videoGraph.length
+  ? JSON.stringify({ "@context": "https://schema.org", "@graph": videoGraph }).replaceAll("<", "\\u003c")
+  : undefined
+---
+
+<DefaultHead />
+<meta name="robots" content={robots} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:alt" content={featuredImage?.alt ?? `${data.title} preview`} />
+<meta property="og:image:width" content={String(imageWidth)} />
+<meta property="og:image:height" content={String(imageHeight)} />
+<meta name="twitter:title" content={data.title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:image:alt" content={featuredImage?.alt ?? `${data.title} preview`} />
+{videoJsonLd && <script is:inline type="application/ld+json" set:html={videoJsonLd} />}

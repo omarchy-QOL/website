@@ -12,6 +12,13 @@ export default $config({
   async run() {
     const web = new sst.cloudflare.Astro("Web", {
       path: ".",
+      domain:
+        $app.stage === "production"
+          ? {
+              name: "omarchyqol.com",
+              redirects: ["www.omarchyqol.com", "omarchy-qol.com", "www.omarchy-qol.com"],
+            }
+          : undefined,
     })
 
     return {

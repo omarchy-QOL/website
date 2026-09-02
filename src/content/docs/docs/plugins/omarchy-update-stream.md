@@ -15,7 +15,9 @@ highlights:
   - Switches between available package channels
   - Controls when the update indicator should be visible
 screenshots:
-  - src: /media/update-channel/preview.png
+  - src: /media/update-channel/preview-v0.1.0.webp
     alt: Update Channel panel and settings
     caption: Update channel controls
+    width: 390
+    height: 280
 ---

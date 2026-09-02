@@ -40,10 +40,13 @@ const syncshellVideos = syncshell?.data.videos ?? []
         {
           syncshellVideos.length > 0 && (
             <section class="section-block landing-demo-section" aria-labelledby="syncshell-demo-title">
-              <div class="section-heading">
+              <div class="section-heading landing-demo-heading">
                 <h2 id="syncshell-demo-title">Demo of Syncshell</h2>
+                <a class="text-link" href={syncshell ? `/${syncshell.id}` : "/docs/plugins/syncshell"}>
+                  View Syncshell
+                </a>
               </div>
-              <VideoGrid videos={syncshellVideos} />
+              <VideoGrid videos={syncshellVideos} preload="none" />
             </section>
           )
         }

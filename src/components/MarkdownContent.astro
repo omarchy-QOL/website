@@ -10,8 +10,17 @@ interface PluginData {
   highlights?: string[]
   sourceUrl?: string
   installCommand?: string
-  screenshots?: Array<{ src: string; alt: string; caption: string }>
-  videos?: Array<{ src: string; poster: string; title: string }>
+  screenshots?: Array<{ src: string; alt: string; caption: string; width: number; height: number }>
+  videos?: Array<{
+    src: string
+    poster: string
+    title: string
+    description: string
+    duration: string
+    uploadDate: string
+    width: number
+    height: number
+  }>
 }
 
 const data = Astro.locals.starlightRoute.entry.data as PluginData

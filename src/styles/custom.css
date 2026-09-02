@@ -247,6 +247,13 @@ summary:focus-visible {
   margin-bottom: 0;
 }
 
+.landing-demo-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
 .eyebrow,
 .docs-label {
   margin: 0 0 0.5rem;
@@ -458,7 +465,9 @@ summary:focus-visible {
 }
 
 .demo-figure {
+  display: flex;
   min-width: 0;
+  flex-direction: column;
   margin: 0;
   background: var(--background);
 }
@@ -479,12 +488,14 @@ summary:focus-visible {
 .demo-figure video {
   display: block;
   width: 100%;
+  height: auto;
   aspect-ratio: 16 / 10;
   background: #0e0e14;
   object-fit: contain;
 }
 
 .demo-figure figcaption {
+  flex: 1;
   padding: 0.65rem 0.75rem;
   border-top: 1px solid var(--border);
   color: var(--text-weak);
@@ -492,6 +503,21 @@ summary:focus-visible {
   font-size: 0.68rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+}
+
+.demo-caption-title,
+.demo-caption-description {
+  display: block;
+}
+
+.demo-caption-description {
+  margin-top: 0.35rem;
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: normal;
+  line-height: 1.4;
+  text-transform: none;
 }
 
 .demo-video-section {
@@ -713,6 +739,11 @@ body > .page .sl-markdown-content h3 {
   .vision-grid,
   .labs-callout {
     grid-template-columns: 1fr;
+  }
+
+  .landing-demo-heading {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .demo-screenshot-grid,

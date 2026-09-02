@@ -1,10 +1,10 @@
+import sitemap from "@astrojs/sitemap"
 import starlight from "@astrojs/starlight"
 import { defineConfig } from "astro/config"
-
-const description = "Plugins that improve Omarchy without blowing up your system."
+import { NOINDEX_PATHS, SITE } from "./src/config/site.mjs"
 
 export default defineConfig({
-  site: "https://omarchyqol.com",
+  site: SITE.origin,
   output: "static",
   server: {
     host: "127.0.0.1",
@@ -14,9 +14,15 @@ export default defineConfig({
     enabled: false,
   },
   integrations: [
+    sitemap({
+      filter: (page) => {
+        const path = new URL(page).pathname
+        return !NOINDEX_PATHS.includes(path) && !path.endsWith(".xml") && !path.endsWith(".txt")
+      },
+    }),
     starlight({
-      title: "Omarchy QOL",
-      description,
+      title: SITE.name,
+      description: SITE.description,
       favicon: "/omarchy-wordmark.svg",
       pagefind: false,
       lastUpdated: false,
@@ -31,6 +37,7 @@ export default defineConfig({
         "./src/styles/custom.css",
       ],
       components: {
+        Head: "./src/components/SeoHead.astro",
         Header: "./src/components/DocsHeader.astro",
         MarkdownContent: "./src/components/MarkdownContent.astro",
         PageTitle: "./src/components/PageTitle.astro",
@@ -57,13 +64,6 @@ export default defineConfig({
             { label: "Metaplug", slug: "docs/plugins/metaplug" },
           ],
         },
-      ],
-      head: [
-        { tag: "meta", attrs: { property: "og:title", content: "Omarchy QOL" } },
-        { tag: "meta", attrs: { property: "og:description", content: description } },
-        { tag: "meta", attrs: { property: "og:type", content: "website" } },
-        { tag: "meta", attrs: { property: "og:image", content: "https://omarchyqol.com/og-green.png" } },
-        { tag: "meta", attrs: { name: "twitter:card", content: "summary_large_image" } },
       ],
     }),
   ],

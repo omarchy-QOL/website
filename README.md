@@ -31,12 +31,12 @@ The development server opens at `http://localhost:3000`.
 ## Verify
 
 ```bash
-npm run build
-npm run check
+npm run verify
 ```
 
 Cloudflare deployment is described by `sst.config.ts`. Deployment remains a
-manual action.
+manual action. The post-publication discovery steps are kept in
+[`SEO-LAUNCH.md`](SEO-LAUNCH.md).
 
 ## Brand
 

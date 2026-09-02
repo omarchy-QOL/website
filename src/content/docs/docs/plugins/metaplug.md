@@ -13,7 +13,9 @@ highlights:
   - Supports custom Lua scoring functions
   - Lives in Labs while the data model and interaction settle
 screenshots:
-  - src: /media/metaplug/preview.png
+  - src: /media/metaplug/preview-v0.1.0.webp
     alt: Metaplug browser and pinned metric analysis
     caption: Plugin browser and pinned analysis
+    width: 2400
+    height: 900
 ---

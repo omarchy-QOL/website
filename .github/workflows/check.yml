@@ -20,6 +20,4 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx sst install
-      - run: npm run format:check
-      - run: npm run check
-      - run: npm run build
+      - run: npm run verify

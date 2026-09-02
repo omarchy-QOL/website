@@ -14,10 +14,13 @@
     "preview": "astro preview --config astro.cloudflare.config.mjs",
     "check": "astro check",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "seo:check": "node scripts/check-seo.mjs",
+    "verify": "npm run format:check && npm run check && npm run build && npm run seo:check"
   },
   "dependencies": {
     "@astrojs/cloudflare": "14.2.6",
+    "@astrojs/sitemap": "3.7.4",
     "@astrojs/starlight": "0.42.0",
     "@fontsource/ibm-plex-mono": "5.2.5",
     "astro": "7.2.10"

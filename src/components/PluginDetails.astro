@@ -5,12 +5,19 @@ interface Screenshot {
   src: string
   alt: string
   caption: string
+  width: number
+  height: number
 }
 
 interface Video {
   src: string
   poster: string
   title: string
+  description: string
+  duration: string
+  uploadDate: string
+  width: number
+  height: number
 }
 
 interface Props {
@@ -49,7 +56,14 @@ const hasDemo = screenshots.length > 0 || videos.length > 0
           {screenshots.map((screenshot) => (
             <figure class="demo-figure">
               <a class="demo-image-frame" href={screenshot.src} target="_blank" rel="noreferrer">
-                <img src={screenshot.src} alt={screenshot.alt} loading="lazy" />
+                <img
+                  src={screenshot.src}
+                  alt={screenshot.alt}
+                  width={screenshot.width}
+                  height={screenshot.height}
+                  loading="lazy"
+                  decoding="async"
+                />
               </a>
               <figcaption>{screenshot.caption}</figcaption>
             </figure>

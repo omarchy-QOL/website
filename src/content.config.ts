@@ -7,12 +7,19 @@ const screenshot = z.object({
   src: z.string(),
   alt: z.string(),
   caption: z.string(),
+  width: z.number().int().positive(),
+  height: z.number().int().positive(),
 })
 
 const video = z.object({
   src: z.string(),
   poster: z.string(),
   title: z.string(),
+  description: z.string(),
+  duration: z.string().regex(/^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/),
+  uploadDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  width: z.number().int().positive(),
+  height: z.number().int().positive(),
 })
 
 export const collections = {
