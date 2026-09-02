@@ -13,10 +13,9 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/.vinext/
-/out/
+# astro and sst
+/.astro/
+/.sst/
 
 # misc
 .DS_Store
@@ -55,9 +54,9 @@ SKILL.md
 .vercel
 
 # typescript
-next-env.d.ts
 *.tsbuildinfo
 /dist/
 /.wrangler/
 /outputs/
 /work/
+/.openai/

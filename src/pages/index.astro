@@ -1,0 +1,72 @@
+---
+import { getCollection } from "astro:content"
+import SiteHeader from "../components/SiteHeader.astro"
+import BaseLayout from "../layouts/BaseLayout.astro"
+
+export const prerender = true
+
+const plugins = (await getCollection("docs"))
+  .filter((entry) => entry.data.pluginOrder !== undefined)
+  .sort((left, right) => (left.data.pluginOrder ?? 0) - (right.data.pluginOrder ?? 0))
+
+const publishedPlugins = plugins.filter((plugin) => plugin.data.status === "published")
+const metaplug = plugins.find((plugin) => plugin.id.endsWith("/metaplug"))
+---
+
+<BaseLayout>
+  <div class="site-shell landing-shell">
+    <SiteHeader layer="landing" />
+    <main class="landing-main">
+      <div class="home-page">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-content">
+            <h1 class="landing-heading" id="hero-title">
+              Plugins that make Omarchy easier to use without blowing up your system.
+            </h1>
+          </div>
+
+          <div class="hero-cta">
+            <a href="#plugins">Browse plugins</a>
+            <a href="https://github.com/omarchy-QOL"><code>github.com/omarchy-QOL</code></a>
+          </div>
+        </section>
+
+        <section class="section-block" id="plugins" aria-labelledby="plugins-title">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">The plugins</p>
+              <h2 id="plugins-title">Six plugins. Each scratches an itch.</h2>
+            </div>
+          </div>
+
+          <div class="plugin-grid">
+            {
+              publishedPlugins.map((plugin) => (
+                <a class="plugin-card" href={`/${plugin.id}`}>
+                  <div class="plugin-card-topline">
+                    <span>{plugin.data.category}</span>
+                  </div>
+                  <h3>{plugin.data.title}</h3>
+                  <p>{plugin.data.shortDescription}</p>
+                  <span class="text-link">Have a look</span>
+                </a>
+              ))
+            }
+          </div>
+        </section>
+
+        <section class="labs-callout" aria-labelledby="labs-title">
+          <div>
+            <p class="eyebrow">Labs</p>
+            <h2 id="labs-title">Ideas currently arguing back</h2>
+          </div>
+          <p>
+            Metaplug is the first experiment: a local view of the Omarchy plugin ecosystem with custom success metrics.
+            It is still being argued with, so there is no public install yet.
+          </p>
+          <a class="text-link" href={metaplug ? `/${metaplug.id}` : "/docs/plugins/metaplug"}>Poke around</a>
+        </section>
+      </div>
+    </main>
+  </div>
+</BaseLayout>

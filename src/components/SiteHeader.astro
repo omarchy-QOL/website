@@ -1,0 +1,31 @@
+---
+import Brand from "./Brand.astro"
+
+interface Props {
+  layer: "landing" | "docs"
+}
+
+const { layer } = Astro.props
+---
+
+<header class="site-header">
+  <div class="brand-cluster">
+    <Brand />
+    {layer === "landing" && <span class="brand-subtitle">Quality-of-life plugin development</span>}
+  </div>
+  <nav class="header-meta" aria-label="Primary navigation">
+    {
+      layer === "landing" ? (
+        <>
+          <a href="https://github.com/omarchy-QOL">GitHub</a>
+          <a href="/docs">Docs</a>
+        </>
+      ) : (
+        <>
+          <a href="/">Home</a>
+          <a href="https://github.com/omarchy-QOL">GitHub</a>
+        </>
+      )
+    }
+  </nav>
+</header>

@@ -1,7 +1,7 @@
 # Omarchy QOL website
 
-A minimal public home and documentation site for the Omarchy QOL plugin
-collection.
+A minimal Astro home and Starlight documentation site for the Omarchy QOL
+plugin collection.
 
 ## What is here
 
@@ -11,12 +11,13 @@ collection.
 - reviewed screenshot and video demos from the plugin repositories
 - a separate Labs section for unfinished experiments
 - direct routes to each plugin's GitHub repository
-- responsive light and dark themes
+- a responsive dark theme
 
-Plugin facts are kept in `app/_data/plugins.ts`. Update that file when a
-manifest version, description, status, or repository location changes. Published
-demo copies live under `public/media/`; their source of truth remains the
-matching plugin repository.
+Plugin facts and documentation are kept in
+`src/content/docs/docs/plugins/*.mdx`. Update the matching frontmatter when a
+manifest version, description, status, or repository location changes.
+Published demo copies live under `public/media/`; their source of truth remains
+the matching plugin repository.
 
 ## Run locally
 
@@ -25,14 +26,17 @@ npm install
 npm run dev
 ```
 
-The development server normally opens at `http://localhost:3000`.
+The development server opens at `http://localhost:3000`.
 
 ## Verify
 
 ```bash
 npm run build
-npm test
+npm run check
 ```
+
+Cloudflare deployment is described by `sst.config.ts`. Deployment remains a
+manual action.
 
 ## Brand
 

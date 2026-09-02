@@ -1,5 +1,3 @@
-@import "tailwindcss";
-
 :root {
   color-scheme: dark;
   --background: hsl(0, 9%, 7%);
@@ -14,13 +12,23 @@
   --brand-accent: #9ece6a;
   --sidebar-width: 17rem;
   --header-height: 4.5rem;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --sl-color-accent-high: var(--brand-accent);
+  --sl-color-accent: var(--brand-accent);
+  --sl-color-accent-low: hsl(92, 44%, 15%);
+  --sl-color-bg: var(--background);
+  --sl-color-bg-nav: var(--background);
+  --sl-color-bg-sidebar: var(--background);
+  --sl-color-hairline: var(--border);
+  --sl-color-hairline-light: var(--border);
+  --sl-color-text: var(--foreground);
+  --sl-color-text-accent: var(--brand-accent);
+  --sl-content-width: 48rem;
+  --sl-font: var(--font-mono);
+  --sl-font-mono: var(--font-mono);
+  --sl-nav-height: var(--header-height);
+  --sl-sidebar-width: var(--sidebar-width);
 }
 
 * {
@@ -35,7 +43,7 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--text);
-  font-family: var(--font-geist-sans), Arial, sans-serif;
+  font-family: var(--font-sans);
   font-size: 14px;
   line-height: 1.55;
 }
@@ -96,7 +104,7 @@ summary:focus-visible {
   border-radius: 2px;
   background: var(--brand-accent);
   color: #0e0e14;
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono);
   font-size: 0.82rem;
   font-weight: 800;
   letter-spacing: 0.06em;
@@ -104,7 +112,7 @@ summary:focus-visible {
 
 .brand-subtitle {
   color: var(--text);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono);
   font-size: 0.8rem;
   white-space: nowrap;
 }
@@ -127,59 +135,6 @@ summary:focus-visible {
   text-underline-offset: 4px;
 }
 
-.site-body {
-  display: grid;
-  min-height: calc(100vh - var(--header-height));
-  grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
-}
-
-.sidebar {
-  position: sticky;
-  top: var(--header-height);
-  display: flex;
-  height: calc(100vh - var(--header-height));
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 1.5rem 0;
-  border-right: 1px solid var(--border);
-  overflow-y: auto;
-}
-
-.plugin-nav {
-  display: flex;
-  flex-direction: column;
-}
-
-.plugin-nav p {
-  margin: 1.25rem 1.5rem 0.5rem;
-  color: var(--foreground);
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-
-.plugin-nav a {
-  position: relative;
-  width: 100%;
-  padding: 0.25rem 1.5rem;
-  color: var(--text);
-  font-size: 0.875rem;
-  opacity: 0.55;
-}
-
-.plugin-nav a:hover {
-  background: var(--surface);
-  color: var(--foreground);
-  opacity: 1;
-}
-
-.plugin-nav a.active {
-  border-left: 2px solid var(--foreground);
-  background: var(--surface);
-  color: var(--foreground);
-  font-weight: 600;
-  opacity: 1;
-}
-
 .sidebar-note {
   margin: 2rem 1.5rem 0;
   color: var(--text-weak);
@@ -187,31 +142,8 @@ summary:focus-visible {
   line-height: 1.5;
 }
 
-.mobile-nav {
-  display: none;
-}
-
-.landing-main,
-.docs-main,
-.docs-main > main {
+.landing-main {
   min-width: 0;
-}
-
-.docs-context {
-  display: flex;
-  height: 3rem;
-  align-items: center;
-  gap: 1.75rem;
-  padding: 0 2rem;
-  border-bottom: 1px solid var(--border);
-  color: var(--text-weak);
-  font-family: var(--font-geist-mono), monospace;
-  font-size: 0.78rem;
-}
-
-.docs-context strong {
-  color: var(--foreground);
-  font-weight: 500;
 }
 
 .home-page {
@@ -263,7 +195,7 @@ summary:focus-visible {
 
 .hero-cta code {
   color: var(--text);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono);
   font-size: 0.875rem;
 }
 
@@ -315,7 +247,7 @@ summary:focus-visible {
 .docs-label {
   margin: 0 0 0.5rem;
   color: var(--text-weak);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
   font-weight: 500;
   letter-spacing: 0.06em;
@@ -388,7 +320,7 @@ summary:focus-visible {
 .docs-kicker,
 .kind-list {
   color: var(--text-weak);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -548,7 +480,7 @@ summary:focus-visible {
   padding: 0.65rem 0.75rem;
   border-top: 1px solid var(--border);
   color: var(--text-weak);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -599,7 +531,7 @@ summary:focus-visible {
 
 .command-block code {
   color: var(--foreground);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-mono);
   font-size: 0.84rem;
 }
 
@@ -634,6 +566,86 @@ summary:focus-visible {
   font-size: 1.125rem;
 }
 
+.docs-header {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+body > .page {
+  font-family: var(--font-mono);
+}
+
+starlight-theme-select {
+  display: none;
+}
+
+body > .page > header {
+  border-bottom: 1px solid var(--border);
+  background: var(--background);
+}
+
+body > .page .sidebar-pane {
+  border-color: var(--border);
+  background: var(--background);
+}
+
+body > .page nav.sidebar a {
+  color: var(--text);
+  font-size: 0.875rem;
+  opacity: 0.65;
+}
+
+body > .page nav.sidebar a:hover,
+body > .page nav.sidebar a[aria-current="page"] {
+  color: var(--foreground);
+  opacity: 1;
+}
+
+body > .page nav.sidebar a[aria-current="page"] {
+  border-inline-start: 2px solid var(--foreground);
+  background: var(--surface);
+  font-weight: 600;
+}
+
+body > .page nav.sidebar summary {
+  color: var(--foreground);
+  font-size: 0.875rem;
+}
+
+body > .page .content-panel {
+  border-color: var(--border);
+}
+
+.docs-page-description {
+  max-width: 45rem;
+  margin: 1rem 0 0;
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+}
+
+body > .page h1#_top {
+  font-size: 1.625rem;
+  font-weight: 500;
+}
+
+body > .page .sl-markdown-content h2,
+body > .page .sl-markdown-content h3 {
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+body > .page .sl-markdown-content h2 {
+  font-size: 1.375rem;
+}
+
+body > .page .sl-markdown-content h3 {
+  font-size: 1rem;
+}
+
 @media (max-width: 64rem) {
   .labs-callout {
     align-items: start;
@@ -654,45 +666,8 @@ summary:focus-visible {
     padding: 1rem 1.5rem;
   }
 
-  .site-body {
-    display: block;
-  }
-
   .brand-subtitle {
     display: none;
-  }
-
-  .sidebar {
-    display: none;
-  }
-
-  .mobile-nav {
-    position: sticky;
-    z-index: 15;
-    top: var(--header-height);
-    display: block;
-    border-bottom: 1px solid var(--border);
-    background: var(--background);
-  }
-
-  .mobile-nav summary {
-    padding: 0.75rem 1.5rem;
-    cursor: pointer;
-    color: var(--foreground);
-    font-weight: 600;
-    list-style-position: inside;
-  }
-
-  .mobile-nav .plugin-nav {
-    max-height: 65vh;
-    padding-bottom: 1rem;
-    border-top: 1px solid var(--border);
-    overflow-y: auto;
-  }
-
-  .docs-context {
-    gap: 1rem;
-    padding: 0 1.5rem;
   }
 
   .hero-cta {

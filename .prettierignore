@@ -1,0 +1,6 @@
+dist/
+node_modules/
+TODO/
+public/media/
+.astro/
+.sst/
