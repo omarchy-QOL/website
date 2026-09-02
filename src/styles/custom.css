@@ -281,7 +281,7 @@ summary:focus-visible {
 
 .plugin-card {
   display: flex;
-  min-height: 13rem;
+  min-height: 10.5rem;
   flex-direction: column;
   padding: 1.5rem;
   border-right: 1px solid var(--border);
@@ -292,7 +292,7 @@ summary:focus-visible {
   background: var(--surface);
 }
 
-.plugin-card-topline,
+.plugin-card-category,
 .docs-kicker,
 .kind-list {
   color: var(--text-weak);
@@ -302,13 +302,8 @@ summary:focus-visible {
   text-transform: uppercase;
 }
 
-.plugin-card-topline {
-  display: flex;
-  justify-content: space-between;
-}
-
 .plugin-card h3 {
-  margin: 2.5rem 0 0.5rem;
+  margin: 0 0 0.5rem;
   color: var(--foreground);
   font-size: 1.125rem;
   font-weight: 500;
@@ -318,6 +313,11 @@ summary:focus-visible {
   max-width: 28rem;
   margin: 0;
   color: var(--text);
+}
+
+.plugin-card-category {
+  margin-top: auto;
+  padding-top: 1.25rem;
 }
 
 .text-link {

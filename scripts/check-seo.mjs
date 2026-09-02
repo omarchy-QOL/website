@@ -191,6 +191,7 @@ if (existsSync(rootHtmlPath)) {
     "landing videos must not preload media",
   )
   assert(!landingHtml.includes('class="hero-cta"'), "removed landing action buttons returned")
+  assert(!landingHtml.includes("Have a look"), "redundant plugin card prompt returned")
   assert(docsLinkIndex >= 0, "landing navigation is missing Docs")
   assert(githubLinkIndex >= 0, "landing navigation is missing GitHub")
   assert(
