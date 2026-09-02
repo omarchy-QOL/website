@@ -1,9 +1,13 @@
 ---
+import Search from "@astrojs/starlight/components/Search.astro"
 import Brand from "./Brand.astro"
 ---
 
 <div class="docs-header">
   <Brand />
+  <div class="docs-search">
+    <Search />
+  </div>
   <nav class="header-meta" aria-label="Primary navigation">
     <a href="/">Home</a>
     <a href="https://github.com/omarchy-QOL">GitHub</a>

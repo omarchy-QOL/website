@@ -46,11 +46,19 @@ const sitemapIndexPath = join(distDir, "sitemap-index.xml")
 const robotsPath = join(distDir, "robots.txt")
 const videoSitemapPath = join(distDir, "video-sitemap.xml")
 const notFoundPath = join(distDir, "404.html")
+const pagefindPath = join(distDir, "pagefind/pagefind.js")
+const docsPath = join(distDir, "docs/index.html")
 
 assert(existsSync(sitemapIndexPath), "missing sitemap-index.xml")
 assert(existsSync(robotsPath), "missing robots.txt")
 assert(existsSync(videoSitemapPath), "missing video-sitemap.xml")
 assert(existsSync(notFoundPath), "missing 404 page")
+assert(existsSync(pagefindPath), "missing Pagefind search index")
+assert(existsSync(docsPath), "missing documentation index")
+
+if (existsSync(docsPath)) {
+  assert(read(docsPath).includes('aria-keyshortcuts="Control+K"'), "documentation search shortcut is missing")
+}
 
 const sitemapFiles = existsSync(distDir) ? readdirSync(distDir).filter((file) => /^sitemap-\d+\.xml$/.test(file)) : []
 const sitemap = sitemapFiles.map((file) => read(join(distDir, file))).join("\n")
@@ -84,6 +92,7 @@ let publishedCount = 0
 let labCount = 0
 let videoCount = 0
 let syncshellVideoCount = 0
+const publishedRoutes = []
 
 for (const file of readdirSync(contentDir)
   .filter((name) => name.endsWith(".md"))
@@ -138,6 +147,7 @@ for (const file of readdirSync(contentDir)
     assert(NOINDEX_PATHS.includes(route), `${file}: lab route is missing from NOINDEX_PATHS`)
   } else {
     publishedCount += 1
+    publishedRoutes.push(route)
     assert(!meta(html, "robots")[0]?.includes("noindex"), `${file}: published page is noindex`)
     assert(
       sitemap.includes(`<loc>${expectedCanonical}</loc>`),
@@ -170,12 +180,29 @@ for (const file of readdirSync(contentDir)
 }
 
 if (existsSync(rootHtmlPath)) {
-  const landingVideos = tags(read(rootHtmlPath), "video")
+  const landingHtml = read(rootHtmlPath)
+  const landingVideos = tags(landingHtml, "video")
+  const landingLinks = tags(landingHtml, "a").map((tag) => attribute(tag, "href"))
+  const docsLinkIndex = landingLinks.indexOf("/docs")
+  const githubLinkIndex = landingLinks.indexOf("https://github.com/omarchy-QOL")
   assert(landingVideos.length === syncshellVideoCount, "landing Syncshell video count is stale")
   assert(
     landingVideos.every((tag) => attribute(tag, "preload") === "none"),
     "landing videos must not preload media",
   )
+  assert(!landingHtml.includes('class="hero-cta"'), "removed landing action buttons returned")
+  assert(docsLinkIndex >= 0, "landing navigation is missing Docs")
+  assert(githubLinkIndex >= 0, "landing navigation is missing GitHub")
+  assert(
+    docsLinkIndex >= 0 && githubLinkIndex >= 0 && docsLinkIndex < githubLinkIndex,
+    "landing navigation order is wrong",
+  )
+  for (const route of publishedRoutes) {
+    assert(
+      landingLinks.includes(route) || landingLinks.includes(route.slice(0, -1)),
+      `landing page does not link ${route}`,
+    )
+  }
 }
 
 for (const file of walk(join(publicDir, "media"))) {

@@ -24,7 +24,7 @@ export default defineConfig({
       title: SITE.name,
       description: SITE.description,
       favicon: "/omarchy-wordmark.svg",
-      pagefind: false,
+      pagefind: true,
       lastUpdated: false,
       pagination: false,
       tableOfContents: false,
