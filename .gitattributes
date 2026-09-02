@@ -1,0 +1,12 @@
+TODO/** export-ignore
+AGENTS.md export-ignore
+CLAUDE.md export-ignore
+SKILL.md export-ignore
+**/AGENTS.md export-ignore
+**/CLAUDE.md export-ignore
+**/SKILL.md export-ignore
+.agents/** export-ignore
+.claude/** export-ignore
+.codex/** export-ignore
+.cursor/** export-ignore
+.opencode/** export-ignore
