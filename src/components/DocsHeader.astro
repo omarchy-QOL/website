@@ -1,4 +1,5 @@
 ---
+import { Icon } from "@astrojs/starlight/components"
 import Search from "@astrojs/starlight/components/Search.astro"
 import Brand from "./Brand.astro"
 ---
@@ -9,7 +10,13 @@ import Brand from "./Brand.astro"
     <Search />
   </div>
   <nav class="header-meta" aria-label="Primary navigation">
-    <a href="/">Home</a>
-    <a href="https://github.com/omarchy-QOL">GitHub</a>
+    <a href="/">
+      <Icon name="left-arrow" size="0.95rem" />
+      <span>Home</span>
+    </a>
+    <a href="https://github.com/omarchy-QOL">
+      <Icon name="github" size="0.95rem" />
+      <span>GitHub</span>
+    </a>
   </nav>
 </div>

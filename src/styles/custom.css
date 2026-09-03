@@ -125,7 +125,11 @@ summary:focus-visible {
 }
 
 .header-meta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   color: var(--text-weak);
+  line-height: 1;
 }
 
 .header-meta a:hover {
@@ -573,13 +577,6 @@ summary:focus-visible {
   padding: 0.5rem 0.9rem;
   font-size: 0.875rem;
   white-space: nowrap;
-}
-
-.github-mark {
-  width: 1.1rem;
-  height: 1.1rem;
-  flex: 0 0 auto;
-  fill: currentColor;
 }
 
 .docs-header {
