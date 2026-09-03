@@ -54,7 +54,8 @@ a {
 }
 
 a:focus-visible,
-summary:focus-visible {
+summary:focus-visible,
+button:focus-visible {
   outline: 2px solid var(--interactive);
   outline-offset: 3px;
 }
@@ -523,19 +524,69 @@ summary:focus-visible {
   content: "";
 }
 
-.command-block {
+.command-field {
+  display: flex;
+  min-width: 0;
+  min-height: 2.75rem;
+  align-items: stretch;
   margin: 0.75rem 0 1.25rem;
-  padding: 1rem 1.25rem;
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 4px;
   background: var(--surface);
-  overflow-x: auto;
+  overflow: hidden;
 }
 
-.command-block code {
+.command-prompt {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  padding-left: 0.9rem;
+  color: var(--brand-accent);
+  font-family: var(--font-mono);
+  user-select: none;
+}
+
+.command-field code {
+  min-width: 0;
+  flex: 1;
+  align-self: center;
+  padding: 0.7rem 0.75rem;
   color: var(--foreground);
   font-family: var(--font-mono);
   font-size: 0.84rem;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  white-space: nowrap;
+}
+
+.command-copy {
+  display: inline-flex;
+  min-width: 5.25rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 0.75rem;
+  border: 0;
+  border-left: 1px solid var(--border);
+  background: var(--background);
+  color: var(--text);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+
+.command-copy:hover {
+  background: var(--surface-hover);
+  color: var(--foreground);
+}
+
+.command-copy[data-state="copied"] {
+  color: var(--brand-accent);
+}
+
+.command-copy[data-state="error"] {
+  color: var(--interactive);
 }
 
 .docs-note {
