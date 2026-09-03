@@ -34,8 +34,17 @@ The development server opens at `http://localhost:3000`.
 npm run verify
 ```
 
-Cloudflare deployment is described by `sst.config.ts`. Deployment remains a
-manual action. The post-publication discovery steps are kept in
+The Astro build emits a deployable Cloudflare Worker. The canonical site and
+redirect Worker can be deployed directly with Wrangler:
+
+```bash
+npm run verify
+npx wrangler deploy --domain omarchyqol.com
+npx wrangler deploy --config wrangler.redirects.jsonc
+```
+
+`sst.config.ts` describes the equivalent SST deployment for CI environments
+with a Cloudflare API token. The post-publication discovery steps are kept in
 [`SEO-LAUNCH.md`](SEO-LAUNCH.md).
 
 ## Brand

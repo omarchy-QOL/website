@@ -1,0 +1,25 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "omarchy-qol-redirects",
+  "main": "./infra/redirect-worker.js",
+  "compatibility_date": "2026-09-03",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    {
+      "pattern": "www.omarchyqol.com",
+      "custom_domain": true,
+    },
+    {
+      "pattern": "omarchy-qol.com",
+      "custom_domain": true,
+    },
+    {
+      "pattern": "www.omarchy-qol.com",
+      "custom_domain": true,
+    },
+  ],
+  "observability": {
+    "enabled": true,
+  },
+}

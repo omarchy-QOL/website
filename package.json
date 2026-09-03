@@ -16,7 +16,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "seo:check": "node scripts/check-seo.mjs",
-    "verify": "npm run format:check && npm run check && npm run build && npm run seo:check"
+    "test:redirects": "node --test tests/redirect-worker.test.mjs",
+    "verify": "npm run format:check && npm run check && npm run build && npm run seo:check && npm run test:redirects"
   },
   "dependencies": {
     "@astrojs/cloudflare": "14.2.6",
