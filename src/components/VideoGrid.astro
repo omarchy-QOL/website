@@ -1,17 +1,8 @@
 ---
-interface Video {
-  src: string
-  poster: string
-  title: string
-  description: string
-  duration: string
-  uploadDate: string
-  width: number
-  height: number
-}
+import type { CollectionEntry } from "astro:content"
 
 interface Props {
-  videos: Video[]
+  videos: NonNullable<CollectionEntry<"docs">["data"]["videos"]>
   preload?: "none" | "metadata"
 }
 

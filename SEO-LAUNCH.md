@@ -9,8 +9,8 @@ configured to redirect `www.omarchyqol.com`, `omarchy-qol.com`, and
 - Run `npm run verify`.
 - Confirm published plugin versions against their GitHub default branches.
 - Confirm every media URL returns a successful byte-range response.
-- Keep Labs visible but `noindex,follow` until they have public repositories
-  and install information.
+- Keep Labs visible but `noindex,follow` until they have public repositories and
+  install information.
 
 ## After production deployment
 
@@ -20,8 +20,8 @@ configured to redirect `www.omarchyqol.com`, `omarchy-qol.com`, and
 - Run Google Rich Results Test on a plugin page containing videos.
 - Run PageSpeed Insights for the landing page and one media-heavy plugin page.
 - Verify the domain property in Google Search Console through Cloudflare DNS.
-- Submit `https://omarchyqol.com/sitemap-index.xml` and inspect the landing
-  page plus two representative plugin pages.
+- Submit `https://omarchyqol.com/sitemap-index.xml` and inspect the landing page
+  plus two representative plugin pages.
 - Monitor Page Indexing, Video Indexing, and Core Web Vitals.
 
 ## External discovery
@@ -37,5 +37,5 @@ configured to redirect `www.omarchyqol.com`, `omarchy-qol.com`, and
   results.
 - Do not add generated keyword pages, a separate AEO/GEO layer, or analytics
   without a concrete measurement need.
-- Do not add individual video watch pages unless video-search traffic becomes
-  an explicit goal.
+- Do not add individual video watch pages unless video-search traffic becomes an
+  explicit goal.

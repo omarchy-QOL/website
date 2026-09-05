@@ -1,0 +1,11 @@
+---
+import DefaultMarkdownContent from "@astrojs/starlight/components/MarkdownContent.astro"
+import PluginDetails from "../PluginDetails.astro"
+
+const data = Astro.locals.starlightRoute.entry.data
+---
+
+<DefaultMarkdownContent>
+  {data.pluginOrder !== undefined && <PluginDetails {...data} />}
+  <slot />
+</DefaultMarkdownContent>

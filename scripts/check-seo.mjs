@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs"
 import { basename, join } from "node:path"
 import { fileURLToPath } from "node:url"
+import { parse } from "yaml"
 import { NOINDEX_PATHS, SITE } from "../src/config/site.mjs"
 
 const root = fileURLToPath(new URL("..", import.meta.url))
@@ -16,13 +17,6 @@ const assert = (condition, message) => {
 }
 
 const read = (path) => readFileSync(path, "utf8")
-const scalar = (source, key) => source.match(new RegExp(`^${key}:\\s*(.+)$`, "m"))?.[1]?.replace(/^['"]|['"]$/g, "")
-const mediaPaths = (source) =>
-  [...source.matchAll(/^\s+(?:-\s+)?(?:src|poster):\s+(\/media\/\S+)$/gm)].map((match) => match[1])
-const videoPaths = (source) => [...source.matchAll(/^\s+- src:\s+(\/media\/\S+\.mp4)$/gm)].map((match) => match[1])
-const firstScreenshot = (source) => source.match(/^screenshots:\n\s+- src:\s+(\/media\/\S+)$/m)?.[1]
-const firstPoster = (source) => source.match(/^\s+poster:\s+(\/media\/\S+)$/m)?.[1]
-
 const tags = (html, tagName) => html.match(new RegExp(`<${tagName}\\b[^>]*>`, "g")) ?? []
 const attribute = (tag, name) => tag.match(new RegExp(`\\b${name}="([^"]*)"`))?.[1]
 const meta = (html, key) =>
@@ -100,19 +94,21 @@ for (const file of readdirSync(contentDir)
   const source = read(join(contentDir, file))
   const slug = basename(file, ".md")
   const route = `/docs/plugins/${slug}/`
-  const title = scalar(source, "title")
-  const description = scalar(source, "description")
-  const status = scalar(source, "status")
+  const frontmatter = source.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/)?.[1]
+  assert(frontmatter, `${file}: missing frontmatter`)
+  if (!frontmatter) continue
+  const { title, description, status, screenshots = [], videos = [] } = parse(frontmatter)
+  const mediaPaths = [...screenshots.map((image) => image.src), ...videos.flatMap((video) => [video.src, video.poster])]
   const pagePath = join(distDir, route, "index.html")
   const expectedCanonical = new URL(route, SITE.origin).href
-  const expectedImage = new URL(firstScreenshot(source) ?? firstPoster(source) ?? SITE.socialImage, SITE.origin).href
+  const expectedImage = new URL(screenshots[0]?.src ?? videos[0]?.poster ?? SITE.socialImage, SITE.origin).href
 
   assert(title, `${file}: missing title`)
   assert(description, `${file}: missing description`)
   assert(status === "published" || status === "lab", `${file}: invalid status`)
   assert(existsSync(pagePath), `${file}: missing built page`)
 
-  for (const mediaPath of mediaPaths(source)) {
+  for (const mediaPath of mediaPaths) {
     referencedMedia.add(mediaPath)
     assert(/-v\d+\.\d+\.\d+\.(?:mp4|webp)$/.test(mediaPath), `${file}: media URL is not versioned: ${mediaPath}`)
     assert(existsSync(join(publicDir, mediaPath)), `${file}: missing public media: ${mediaPath}`)
@@ -121,7 +117,7 @@ for (const file of readdirSync(contentDir)
 
   if (!existsSync(pagePath)) continue
   const html = read(pagePath)
-  const pageVideos = videoPaths(source)
+  const pageVideos = videos.map((video) => video.src)
   videoCount += pageVideos.length
   if (slug === "syncshell") syncshellVideoCount = pageVideos.length
 

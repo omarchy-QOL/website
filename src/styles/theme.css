@@ -1,0 +1,105 @@
+:root {
+  color-scheme: dark;
+  --background: hsl(0, 9%, 7%);
+  --surface: hsl(0, 6%, 10%);
+  --surface-hover: hsl(0, 5%, 14%);
+  --foreground: hsl(0, 15%, 94%);
+  --text: hsl(0, 4%, 71%);
+  --text-weak: hsl(0, 2%, 49%);
+  --text-weaker: hsl(0, 3%, 28%);
+  --border: hsl(0, 4%, 23%);
+  --interactive: hsl(62, 100%, 90%);
+  --brand-accent: #9ece6a;
+  --sidebar-width: 17rem;
+  --header-height: 4.5rem;
+  --font-sans: Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+  --sl-color-accent-high: var(--brand-accent);
+  --sl-color-accent: var(--brand-accent);
+  --sl-color-accent-low: hsl(92, 44%, 15%);
+  --sl-color-bg: var(--background);
+  --sl-color-bg-nav: var(--background);
+  --sl-color-bg-sidebar: var(--background);
+  --sl-color-hairline: var(--border);
+  --sl-color-hairline-light: var(--border);
+  --sl-color-text: var(--foreground);
+  --sl-color-text-accent: var(--brand-accent);
+  --sl-content-width: 48rem;
+  --sl-font: var(--font-mono);
+  --sl-font-mono: var(--font-mono);
+  --sl-nav-height: var(--header-height);
+  --sl-sidebar-width: var(--sidebar-width);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+a {
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+a:focus-visible,
+summary:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--interactive);
+  outline-offset: 3px;
+}
+
+.eyebrow,
+.docs-label {
+  margin: 0 0 0.5rem;
+  color: var(--text-weak);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.section-heading h2,
+.labs-callout h2,
+.docs-section h2,
+.source-panel h2 {
+  margin: 0;
+  color: var(--foreground);
+  font-size: 1.375rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.plugin-card-category,
+.docs-kicker,
+.kind-list {
+  color: var(--text-weak);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 48rem) {
+  :root {
+    --header-height: 4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

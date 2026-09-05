@@ -1,34 +1,8 @@
 ---
 import DefaultHead from "@astrojs/starlight/components/Head.astro"
-import { SITE } from "../config/site.mjs"
+import { SITE } from "../../config/site.mjs"
 
-interface Screenshot {
-  src: string
-  alt: string
-  width: number
-  height: number
-}
-
-interface Video {
-  src: string
-  poster: string
-  title: string
-  description: string
-  duration: string
-  uploadDate: string
-  width: number
-  height: number
-}
-
-interface PageData {
-  title: string
-  description?: string
-  status?: "published" | "lab"
-  screenshots?: Screenshot[]
-  videos?: Video[]
-}
-
-const data = Astro.locals.starlightRoute.entry.data as PageData
+const data = Astro.locals.starlightRoute.entry.data
 const base = Astro.site ?? new URL(SITE.origin)
 const featuredImage = data.screenshots?.[0]
 const featuredVideo = data.videos?.[0]

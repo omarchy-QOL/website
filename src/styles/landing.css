@@ -1,0 +1,158 @@
+.site-shell {
+  min-height: 100vh;
+}
+
+.landing-main {
+  min-width: 0;
+}
+
+.home-page {
+  width: 100%;
+  padding: 1rem;
+}
+
+.hero {
+  border: 2px solid var(--border);
+}
+
+.landing-heading {
+  max-width: 46rem;
+  margin: 0;
+  color: var(--foreground);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.hero-content {
+  padding: 2.25rem 3rem 1.5rem;
+}
+
+.section-block {
+  margin-top: 1rem;
+  padding: 3rem;
+  border: 2px solid var(--border);
+}
+
+.section-heading {
+  margin-bottom: 3rem;
+}
+
+.landing-demo-section .section-heading {
+  margin-bottom: 0;
+}
+
+.landing-demo-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.plugin-grid {
+  display: grid;
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.plugin-card {
+  display: flex;
+  min-height: 10.5rem;
+  flex-direction: column;
+  padding: 1.5rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.plugin-card:hover {
+  background: var(--surface);
+}
+
+.plugin-card h3 {
+  margin: 0 0 0.5rem;
+  color: var(--foreground);
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.plugin-card p {
+  max-width: 28rem;
+  margin: 0;
+  color: var(--text);
+}
+
+.plugin-card-category {
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+
+.text-link {
+  width: fit-content;
+  margin-top: auto;
+  padding-top: 1.5rem;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.labs-callout {
+  display: grid;
+  align-items: end;
+  gap: 3rem;
+  margin-top: 1rem;
+  padding: 3rem;
+  border: 2px solid var(--border);
+  background: var(--surface);
+  grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 1fr) auto;
+}
+
+.labs-callout p {
+  margin-top: 0;
+}
+
+@media (max-width: 64rem) {
+  .labs-callout {
+    align-items: start;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .labs-callout .text-link {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 48rem) {
+  .labs-callout {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-demo-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .labs-callout .text-link {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 34rem) {
+  .home-page {
+    padding: 0.5rem;
+  }
+
+  .hero-content,
+  .section-block,
+  .labs-callout {
+    padding: 1.5rem;
+  }
+
+  .landing-heading {
+    font-size: 1.3rem;
+  }
+
+  .plugin-grid {
+    grid-template-columns: 1fr;
+  }
+}

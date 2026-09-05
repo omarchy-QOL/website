@@ -1,6 +1,8 @@
 ---
 title: Dropbox Quota
-description: Replace the stock Dropbox widget with local quota status while preserving access to the native Dropbox menu.
+description:
+  Replace the stock Dropbox widget with local quota status while preserving
+  access to the native Dropbox menu.
 shortDescription: Local Dropbox quota state and native controls in one widget.
 category: Files
 status: lab

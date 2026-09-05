@@ -1,6 +1,8 @@
 ---
 title: Plugin Control
-description: Add, update, enable, disable, and remove plugins from a fuzzy command palette inspired by Sublime Text Package Control and editor command palettes.
+description:
+  Add, update, enable, disable, and remove plugins from a fuzzy command palette
+  inspired by Sublime Text Package Control and editor command palettes.
 shortDescription: A fast command palette for the entire plugin lifecycle.
 category: Launcher
 status: published
@@ -26,7 +28,8 @@ videos:
   - src: /media/plugin-control/add-remove-v0.2.1.mp4
     poster: /media/plugin-control/add-remove-v0.2.1.webp
     title: Add, remove, enable, and disable
-    description: Add, remove, enable, and disable an Omarchy plugin from one action menu.
+    description:
+      Add, remove, enable, and disable an Omarchy plugin from one action menu.
     duration: PT1M32S
     uploadDate: "2026-08-16"
     width: 1920
@@ -34,7 +37,9 @@ videos:
   - src: /media/plugin-control/settings-v0.2.1.mp4
     poster: /media/plugin-control/settings-v0.2.1.webp
     title: Refresh and settings
-    description: Refresh the catalog, change settings, and cleanly reinstall Plugin Control.
+    description:
+      Refresh the catalog, change settings, and cleanly reinstall Plugin
+      Control.
     duration: PT2M29S
     uploadDate: "2026-08-16"
     width: 1920

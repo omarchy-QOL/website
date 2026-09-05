@@ -32,13 +32,26 @@
     "prettier": "3.9.6",
     "prettier-plugin-astro": "0.14.1",
     "sst": "4.17.1",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "yaml": "2.9.0"
   },
   "prettier": {
     "semi": false,
     "printWidth": 120,
     "plugins": [
       "prettier-plugin-astro"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "*.md",
+          "*.qmd"
+        ],
+        "options": {
+          "printWidth": 80,
+          "proseWrap": "always"
+        }
+      }
     ]
   }
 }

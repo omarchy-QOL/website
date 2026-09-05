@@ -1,36 +1,9 @@
 ---
+import type { CollectionEntry } from "astro:content"
 import { Icon } from "@astrojs/starlight/components"
 import VideoGrid from "./VideoGrid.astro"
 
-interface Screenshot {
-  src: string
-  alt: string
-  caption: string
-  width: number
-  height: number
-}
-
-interface Video {
-  src: string
-  poster: string
-  title: string
-  description: string
-  duration: string
-  uploadDate: string
-  width: number
-  height: number
-}
-
-interface Props {
-  status: "published" | "lab"
-  version: string
-  kinds: string[]
-  highlights: string[]
-  sourceUrl?: string
-  installCommand?: string
-  screenshots?: Screenshot[]
-  videos?: Video[]
-}
+type Props = Extract<CollectionEntry<"docs">["data"], { pluginOrder: number }>
 
 const { status, version, kinds, highlights, sourceUrl, installCommand, screenshots = [], videos = [] } = Astro.props
 
@@ -122,6 +95,21 @@ const hasDemo = screenshots.length > 0 || videos.length > 0
   )
 }
 
+{
+  sourceUrl && (
+    <section class="source-panel" aria-label="Source repository">
+      <div>
+        <p class="docs-label">Source code</p>
+        <h2>README, code, issues, and releases</h2>
+      </div>
+      <a class="button button-primary source-button" href={sourceUrl}>
+        <Icon name="github" size="1.1rem" />
+        <span>GitHub</span>
+      </a>
+    </section>
+  )
+}
+
 <script>
   const copyButtons = document.querySelectorAll<HTMLButtonElement>(".command-copy")
 
@@ -151,18 +139,3 @@ const hasDemo = screenshots.length > 0 || videos.length > 0
     })
   }
 </script>
-
-{
-  sourceUrl && (
-    <section class="source-panel" aria-label="Source repository">
-      <div>
-        <p class="docs-label">Source code</p>
-        <h2>README, code, issues, and releases</h2>
-      </div>
-      <a class="button button-primary source-button" href={sourceUrl}>
-        <Icon name="github" size="1.1rem" />
-        <span>GitHub</span>
-      </a>
-    </section>
-  )
-}

@@ -1,7 +1,10 @@
 ---
 title: Syncshell
-description: Monitor file changes, inspect sync state, safely manage folders, and control Syncthing without leaving the Omarchy shell.
-shortDescription: Syncthing status, folder controls, and an Omarchy-aware web UI.
+description:
+  Monitor file changes, inspect sync state, safely manage folders, and control
+  Syncthing without leaving the Omarchy shell.
+shortDescription:
+  Syncthing status, folder controls, and an Omarchy-aware web UI.
 category: Files
 status: published
 version: 0.1.7
@@ -25,7 +28,9 @@ videos:
   - src: /media/syncshell/01_syncthing_file_activity-v0.1.7.mp4
     poster: /media/syncshell/01_syncthing_file_activity-v0.1.7.webp
     title: File activity
-    description: Copy and remove files while Syncshell reports live synchronization activity.
+    description:
+      Copy and remove files while Syncshell reports live synchronization
+      activity.
     duration: PT1M14S
     uploadDate: "2026-08-22"
     width: 1920
@@ -33,7 +38,8 @@ videos:
   - src: /media/syncshell/02_syncthing_folder_lifecycle-v0.1.7.mp4
     poster: /media/syncshell/02_syncthing_folder_lifecycle-v0.1.7.webp
     title: Folder lifecycle
-    description: Unlink, relink, and forget a folder without deleting its local files.
+    description:
+      Unlink, relink, and forget a folder without deleting its local files.
     duration: PT1M10S
     uploadDate: "2026-08-22"
     width: 1920
@@ -41,7 +47,8 @@ videos:
   - src: /media/syncshell/03_syncthing_theme_aware_webUI-v0.1.7.mp4
     poster: /media/syncshell/03_syncthing_theme_aware_webUI-v0.1.7.webp
     title: Theme-aware Web UI
-    description: Follow Omarchy theme changes in Syncthing's Web UI without reloading.
+    description:
+      Follow Omarchy theme changes in Syncthing's Web UI without reloading.
     duration: PT1M59S
     uploadDate: "2026-08-22"
     width: 1920
@@ -49,7 +56,8 @@ videos:
   - src: /media/syncshell/04_syncthing_icon_change_and_other_settings-v0.1.7.mp4
     poster: /media/syncshell/04_syncthing_icon_change_and_other_settings-v0.1.7.webp
     title: Icon and settings
-    description: Switch the bar icon style and review Syncshell's other settings.
+    description:
+      Switch the bar icon style and review Syncshell's other settings.
     duration: PT1M9S
     uploadDate: "2026-08-22"
     width: 1920
