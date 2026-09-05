@@ -31,8 +31,8 @@
     "@bruits/satteri-wasm32-wasi": "0.10.5",
     "prettier": "3.9.6",
     "prettier-plugin-astro": "0.14.1",
-    "sst": "4.17.1",
     "typescript": "5.9.3",
+    "wrangler": "4.128.0",
     "yaml": "2.9.0"
   },
   "prettier": {
