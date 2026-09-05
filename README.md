@@ -46,8 +46,19 @@ npm run verify
 Runs formatting, Astro diagnostics, the Cloudflare build, SEO checks, and
 redirect tests. Build output is written to `dist/`.
 
+GitHub Actions runs these checks on pull requests. A successful push to `main`
+deploys the checked build to Cloudflare, then updates the redirect Worker. The
+workflow can also be run manually from `main`.
+
+Set the `CLOUDFLARE_API_TOKEN` Actions secret and `CLOUDFLARE_ACCOUNT_ID`
+Actions variable before the first deployment. The token needs Worker script and
+KV write access for the account, plus zone read and Worker route write access
+for the two website zones.
+
+For a manual deployment from a verified local build:
+
 ```bash
-npx wrangler deploy --domain omarchyqol.com
+npx wrangler deploy --config dist/server/wrangler.json
 npx wrangler deploy --config wrangler.redirects.jsonc
 ```
 

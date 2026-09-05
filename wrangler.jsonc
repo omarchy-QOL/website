@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "omarchy-qol-website",
+  "compatibility_date": "2026-08-31",
+  "routes": [
+    {
+      "pattern": "omarchyqol.com",
+      "custom_domain": true,
+    },
+  ],
+  "observability": {
+    "enabled": true,
+  },
+}
