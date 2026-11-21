@@ -52,9 +52,16 @@ jobs:
         with:
           name: website-build
           path: dist/
-      - name: Check whether this commit is still current
+      - name: Check whether this commit should deploy
         id: revision
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
+          # Until a token is configured, deploys run locally with wrangler.
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "::notice::Skipping deployment because CLOUDFLARE_API_TOKEN is not set"
+            exit 0
+          fi
           current=$(git ls-remote origin refs/heads/main | cut -f1)
           if [ "$current" = "$GITHUB_SHA" ]; then
             echo "deploy=true" >> "$GITHUB_OUTPUT"
