@@ -9,10 +9,6 @@ body > .page {
   font-family: var(--font-mono);
 }
 
-starlight-theme-select {
-  display: none;
-}
-
 body > .page > header {
   border-bottom: 1px solid var(--border);
   background: var(--background);
