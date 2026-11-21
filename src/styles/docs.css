@@ -153,6 +153,19 @@
   white-space: nowrap;
 }
 
+.command-field-multiline code {
+  white-space: pre;
+}
+
+.command-field-multiline .command-prompt {
+  align-items: flex-start;
+  padding-top: 0.7rem;
+}
+
+.command-field-multiline .command-copy {
+  align-self: flex-start;
+}
+
 .command-copy {
   display: inline-flex;
   min-width: 4.75rem;

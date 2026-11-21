@@ -2,6 +2,7 @@ import sitemap from "@astrojs/sitemap"
 import starlight from "@astrojs/starlight"
 import { defineConfig } from "astro/config"
 import { NOINDEX_PATHS, SITE } from "./src/config/site.mjs"
+import { commandFields } from "./src/components/command-field.mjs"
 
 export default defineConfig({
   site: SITE.origin,
@@ -29,6 +30,12 @@ export default defineConfig({
       pagination: false,
       tableOfContents: false,
       credits: false,
+      expressiveCode: {
+        themes: ["github-dark"],
+        shiki: false,
+        frames: false,
+        plugins: [commandFields],
+      },
       customCss: ["./src/styles/custom.css"],
       components: {
         Head: "./src/components/starlight/SeoHead.astro",
