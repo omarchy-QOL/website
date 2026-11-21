@@ -58,7 +58,7 @@ videos:
 Plugins cannot register global shortcuts themselves. To open it with `Ctrl+p`,
 add this to your `bindings.lua`:
 
-```lua
+```lua title="~/.config/hypr/bindings.lua"
 o.bind(
   "CTRL + P",
   "Plugin Control",

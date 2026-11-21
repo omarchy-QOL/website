@@ -49,7 +49,7 @@ videos:
 Flags after `cliamp` in your shortcut are passed on, so it can start a playlist
 right away:
 
-```lua
+```lua title="~/.config/hypr/bindings.lua"
 o.bind("F12", "CLIamp drop-down",
   { tui = "cliamp --playlist Tracks --auto-play", focus = true })
 ```
