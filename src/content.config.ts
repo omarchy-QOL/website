@@ -30,6 +30,7 @@ const plugin = z.object({
   kinds: z.array(z.string()),
   highlights: z.array(z.string()),
   shortDescription: z.string(),
+  intro: z.string().optional(),
   sourceUrl: z.url().optional(),
   installCommand: z.string().optional(),
   screenshots: z.array(screenshot).optional(),

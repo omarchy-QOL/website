@@ -92,19 +92,29 @@
   border-bottom: 1px solid var(--border);
 }
 
-.feature-list {
+.plugin-intro {
+  max-width: 44rem;
+  margin: 1.25rem 0 0;
+  color: var(--foreground);
+}
+
+/* README notes share the highlight list style. */
+.feature-list,
+.plugin-notes ul {
   margin: 1.5rem 0 0;
   padding: 0;
   list-style: none;
 }
 
-.feature-list li {
+.feature-list li,
+.plugin-notes li {
   position: relative;
   padding: 0.5rem 0 0.5rem 1.25rem;
   color: var(--text);
 }
 
-.feature-list li::before {
+.feature-list li::before,
+.plugin-notes li::before {
   position: absolute;
   top: 0.95rem;
   left: 0.15rem;

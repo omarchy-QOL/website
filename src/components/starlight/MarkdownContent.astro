@@ -7,7 +7,14 @@ const data = Astro.locals.starlightRoute.entry.data
 ---
 
 <DefaultMarkdownContent>
-  {data.pluginOrder !== undefined && <PluginDetails {...data} />}
-  <slot />
+  {
+    data.pluginOrder !== undefined ? (
+      <PluginDetails {...data}>
+        <slot />
+      </PluginDetails>
+    ) : (
+      <slot />
+    )
+  }
 </DefaultMarkdownContent>
 <CommandCopy />
