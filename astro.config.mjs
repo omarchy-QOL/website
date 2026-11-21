@@ -43,6 +43,8 @@ export default defineConfig({
         MarkdownContent: "./src/components/starlight/MarkdownContent.astro",
         PageTitle: "./src/components/starlight/PageTitle.astro",
         Sidebar: "./src/components/starlight/DocsSidebar.astro",
+        ThemeProvider: "./src/components/starlight/ThemeProvider.astro",
+        ThemeSelect: "./src/components/starlight/ThemeSelect.astro",
       },
       sidebar: [
         { label: "Overview", slug: "docs" },
