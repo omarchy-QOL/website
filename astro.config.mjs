@@ -62,7 +62,7 @@ export default defineConfig({
               ],
             },
             { label: "Keyboard Layout Pulse", slug: "docs/plugins/omarchy-keyboard-layout" },
-            { label: "CLIamp Window Control", slug: "docs/plugins/omarchy-cliamp-control" },
+            { label: "CLIamp quake", slug: "docs/plugins/omarchy-cliamp-control" },
             { label: "Update Channel", slug: "docs/plugins/omarchy-update-stream" },
             { label: "Wispr Flow", slug: "docs/plugins/wispr-flow" },
             { label: "Voxtype Control", slug: "docs/plugins/voxtype-control" },

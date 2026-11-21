@@ -14,6 +14,9 @@ kinds:
 sourceUrl: https://github.com/omarchy-QOL/omarchy-update-stream
 installCommand:
   omarchy plugin add https://github.com/omarchy-QOL/omarchy-update-stream
+intro: >-
+  Updating Omarchy stays a single click, and trying another package channel is
+  just as easy when you want to see what comes next.
 highlights:
   - Runs the normal Omarchy update flow
   - Switches between available package channels
@@ -25,3 +28,9 @@ screenshots:
     width: 390
     height: 280
 ---
+
+- It takes the place of Omarchy's update icon and gives it back when removed.
+- Pick stable, rc, edge, or dev, and the panel links straight to that channel's
+  changelog, pull requests, and issues.
+- You decide when the icon shows up: only when updates exist, hidden until the
+  next check, or always.

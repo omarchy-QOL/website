@@ -6,7 +6,7 @@ description:
 shortDescription: A fast command palette for the entire plugin lifecycle.
 category: Launcher
 status: published
-version: 0.2.1
+version: 0.3.3
 pluginOrder: 1
 kinds:
   - service
@@ -14,6 +14,10 @@ kinds:
   - bar widget
 sourceUrl: https://github.com/omarchy-QOL/plugin-control
 installCommand: omarchy plugin add https://github.com/omarchy-QOL/plugin-control
+intro: >-
+  Managing plugins can feel like opening a file in your editor: press a key,
+  type a few letters, pick an action. Plugin Control keeps the whole plugin
+  lifecycle one shortcut away.
 highlights:
   - Opens only when called and stays light while idle
   - Supports a configurable keybinding and optional tray icon
@@ -45,3 +49,19 @@ videos:
     width: 1920
     height: 1200
 ---
+
+- It opens from a local cache, so it is there the moment you call it. `Ctrl+r`
+  pulls fresh catalog data when you want it.
+- `Ctrl+u` lists the plugins you can update. Only clean fast-forward updates are
+  offered, and when one is not safe it tells you why.
+
+Plugins cannot register global shortcuts themselves. To open it with `Ctrl+p`,
+add this to your `bindings.lua`:
+
+```lua
+o.bind(
+  "CTRL + P",
+  "Plugin Control",
+  "omarchy-shell shell toggle io.github.ilyazar.plugin-control '{}'"
+)
+```
