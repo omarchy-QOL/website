@@ -1,9 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content"
-import { Icon } from "@astrojs/starlight/components"
+import { Code, Icon } from "@astrojs/starlight/components"
 import VideoGrid from "./VideoGrid.astro"
-import { toHtml } from "astro-expressive-code/hast"
-import { commandField } from "./command-field.mjs"
 
 type Props = Extract<CollectionEntry<"docs">["data"], { pluginOrder: number }>
 
@@ -91,7 +89,7 @@ const hasDemo = screenshots.length > 0 || videos.length > 0
     <section class="docs-section" aria-labelledby="install-title">
       <p class="docs-label">Quick start</p>
       <h2 id="install-title">Install from GitHub</h2>
-      <Fragment set:html={toHtml(commandField(installCommand))} />
+      <Code code={installCommand} lang="bash" />
       <p class="docs-note">
         Review the repository README before installation for current dependencies, configuration notes, and removal
         behavior.
