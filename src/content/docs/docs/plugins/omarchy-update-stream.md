@@ -26,7 +26,7 @@ screenshots:
     alt: Update Channel panel and settings
     caption: Update channel controls
     width: 390
-    height: 280
+    height: 245
 ---
 
 - It takes the place of Omarchy's update icon and gives it back when removed.
