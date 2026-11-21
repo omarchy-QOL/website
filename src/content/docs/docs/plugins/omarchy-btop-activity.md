@@ -7,7 +7,7 @@ shortDescription: Low-overhead system meters with one-click access to btop.
 category: System
 status: published
 version: 0.2.8
-pluginOrder: 3
+pluginOrder: 2
 kinds:
   - service
   - bar widget

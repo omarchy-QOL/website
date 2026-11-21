@@ -7,7 +7,7 @@ shortDescription: A minimal XKB picker with a pulsing layout indicator.
 category: Compositor
 status: published
 version: 0.2.8
-pluginOrder: 4
+pluginOrder: 3
 kinds:
   - bar widget
 sourceUrl: https://github.com/omarchy-QOL/omarchy-keyboard-layout
