@@ -27,3 +27,11 @@ test("command text cannot inject markup", () => {
   assert.ok(!toHtml(select("code", field)).includes("<script>"))
   assert.ok(!select("script", field))
 })
+
+test("config snippets keep the field without a shell prompt", () => {
+  const snippet = 'o.bind("F12", "Player", { tui = "cliamp" })'
+  const renderData = {}
+  commandFields.hooks.postprocessRenderedBlock({ codeBlock: { code: snippet, language: "lua" }, renderData })
+  assert.ok(!select(".command-prompt", renderData.blockAst))
+  assert.equal(select("button", renderData.blockAst).properties.dataCommand, snippet)
+})

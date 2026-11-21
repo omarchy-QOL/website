@@ -137,6 +137,11 @@
   user-select: none;
 }
 
+.command-prompt-gap {
+  flex: 0 0 auto;
+  padding-left: 0.15rem;
+}
+
 .command-field code {
   min-width: 0;
   flex: 1;
