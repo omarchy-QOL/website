@@ -35,14 +35,15 @@
   display: inline-flex;
   min-height: 1.75rem;
   align-items: center;
-  padding: 0.2rem 0.55rem;
+  padding: 0.1rem 0.45rem;
   border-radius: 2px;
   background: var(--brand-accent);
   color: #0e0e14;
   font-family: var(--font-mono);
-  font-size: 0.82rem;
+  font-size: 1rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
+  line-height: 1;
+  letter-spacing: 0.04em;
 }
 
 .brand-subtitle {
