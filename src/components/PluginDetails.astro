@@ -7,7 +7,17 @@ import { commandField } from "./command-field.mjs"
 
 type Props = Extract<CollectionEntry<"docs">["data"], { pluginOrder: number }>
 
-const { status, version, kinds, highlights, sourceUrl, installCommand, screenshots = [], videos = [] } = Astro.props
+const {
+  status,
+  version,
+  kinds,
+  highlights,
+  intro,
+  sourceUrl,
+  installCommand,
+  screenshots = [],
+  videos = [],
+} = Astro.props
 
 const hasDemo = screenshots.length > 0 || videos.length > 0
 ---
@@ -60,10 +70,21 @@ const hasDemo = screenshots.length > 0 || videos.length > 0
 <section class="docs-section" aria-labelledby="does-title">
   <p class="docs-label">Overview</p>
   <h2 id="does-title">What it does</h2>
+  {intro && <p class="plugin-intro">{intro}</p>}
   <ul class="feature-list">
     {highlights.map((highlight) => <li>{highlight}</li>)}
   </ul>
 </section>
+
+{
+  Astro.slots.has("default") && (
+    <section class="docs-section plugin-notes" aria-labelledby="notes-title">
+      <p class="docs-label">Details</p>
+      <h2 id="notes-title">Good to know</h2>
+      <slot />
+    </section>
+  )
+}
 
 {
   installCommand ? (
