@@ -44,7 +44,6 @@ export default defineConfig({
         {
           label: "Plugins",
           items: [
-            { label: "Plugin Control", slug: "docs/plugins/plugin-control" },
             { label: "Syncshell", slug: "docs/plugins/syncshell" },
             {
               label: "btop Activity",
@@ -55,6 +54,7 @@ export default defineConfig({
               ],
             },
             { label: "Keyboard Layout Pulse", slug: "docs/plugins/omarchy-keyboard-layout" },
+            { label: "Plugin Control", slug: "docs/plugins/plugin-control" },
             { label: "CLIamp quake", slug: "docs/plugins/omarchy-cliamp-control" },
             { label: "Update Channel", slug: "docs/plugins/omarchy-update-stream" },
             { label: "Wispr Flow", slug: "docs/plugins/wispr-flow" },

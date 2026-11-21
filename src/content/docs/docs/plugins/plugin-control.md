@@ -7,7 +7,7 @@ shortDescription: A fast command palette for the entire plugin lifecycle.
 category: Launcher
 status: published
 version: 0.3.3
-pluginOrder: 1
+pluginOrder: 4
 kinds:
   - service
   - overlay

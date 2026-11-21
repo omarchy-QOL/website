@@ -8,7 +8,7 @@ shortDescription:
 category: Files
 status: published
 version: 0.2.4
-pluginOrder: 2
+pluginOrder: 1
 kinds:
   - service
   - bar widget
