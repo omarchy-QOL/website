@@ -1,11 +1,16 @@
 import { h, s } from "astro-expressive-code/hast"
 
-export function commandField(command) {
+const SHELLS = new Set(["", "bash", "sh", "shell", "zsh", "console"])
+
+// Only shell commands get a prompt; config snippets such as Lua are pasted as is.
+export function commandField(command, { prompt = true } = {}) {
   return h(
     "div",
     { className: ["command-field", "not-content", ...(command.includes("\n") ? ["command-field-multiline"] : [])] },
     [
-      h("span", { className: "command-prompt", ariaHidden: "true" }, "$"),
+      prompt
+        ? h("span", { className: "command-prompt", ariaHidden: "true" }, "$")
+        : h("span", { className: "command-prompt-gap" }),
       h("code", command),
       h("button", { className: "command-copy", type: "button", dataCommand: command, ariaLabel: "Copy command" }, [
         s(
@@ -29,7 +34,7 @@ export const commandFields = {
   name: "Shared command fields",
   hooks: {
     postprocessRenderedBlock: ({ codeBlock, renderData }) => {
-      renderData.blockAst = commandField(codeBlock.code)
+      renderData.blockAst = commandField(codeBlock.code, { prompt: SHELLS.has(codeBlock.language ?? "") })
     },
   },
 }
