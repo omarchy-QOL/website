@@ -42,6 +42,39 @@ body > .page nav.sidebar summary {
   font-size: 0.875rem;
 }
 
+/* The current page lights up the hierarchy line it sits on. */
+body > .page nav.sidebar ul ul a[aria-current="page"] {
+  border-inline-start: 0;
+}
+
+body > .page nav.sidebar ul ul li:has(> a[aria-current="page"]) {
+  border-inline-start-color: var(--foreground);
+  box-shadow: -1px 0 0 var(--foreground);
+}
+
+/* A plugin with subpages stays a plain, dimmed entry of its group. */
+body > .page nav.sidebar ul ul summary {
+  padding-block: 0.3em;
+  color: var(--text);
+  opacity: 0.65;
+}
+
+body > .page nav.sidebar ul ul summary:hover {
+  color: var(--foreground);
+  opacity: 1;
+}
+
+body > .page nav.sidebar ul ul summary .large {
+  color: inherit;
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+body > .page nav.sidebar ul ul summary .caret {
+  width: 1rem;
+  height: 1rem;
+}
+
 body > .page .content-panel {
   border-color: var(--border);
 }
