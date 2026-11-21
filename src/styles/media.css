@@ -32,11 +32,13 @@
   overflow: hidden;
 }
 
-/* Screenshots keep their own shape; wide ones would otherwise leave an empty band. */
+/* Screenshots keep their own shape and never scale above their real size. */
 .demo-image-frame img {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   height: auto;
+  margin: 0 auto;
 }
 
 .demo-figure video {
